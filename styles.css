@@ -1,0 +1,221 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9fafb; /* Light gray background */
+    position: relative;
+    scroll-behavior: smooth;
+    padding-top: 70px; /* Ensure content is not hidden behind navbar */
+    color: #1f2937; /* Dark gray text */
+}
+/* Navbar */
+.navbar {
+    transition: background-color 0.3s, padding 0.3s;
+    padding: 20px 0;
+    background-color: #ffffff; /* Light background */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.navbar.scrolled {
+    background-color: #1f2937 !important; /* Dark gray when scrolled */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #4f46e5; /* Indigo color */
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #374151; /* Gray text */
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #4f46e5; /* Indigo on hover */
+}
+/* Sidebar */
+#sidebar {
+    top: 70px;
+    left: 0;
+    padding: 30px 20px;
+    background: #ffffff;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+    position: fixed;
+    width: 300px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    z-index: 1050;
+    color: #1f2937;
+}
+#sidebar.collapsed {
+    transform: translateX(-300px);
+}
+/* Toggle Button */
+#sidebarToggle {
+    position: fixed;
+    top: 80px;
+    left: 310px;
+    background-color: #4f46e5; /* Indigo color */
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: left 0.3s ease;
+    z-index: 1060;
+}
+#sidebar.collapsed + #sidebarToggle {
+    left: 10px;
+}
+#sidebarToggle.collapsed {
+    left: 10px;
+}
+
+/* Main Content */
+#main-content {
+    margin-left: 320px;
+    padding: 60px 40px;
+    transition: margin-left 0.3s ease;
+}
+#main-content.expanded {
+    margin-left: 20px;
+}
+/* Adjust spacing between sections */
+section {
+    margin-bottom: 60px;
+}
+/* Footer */
+footer {
+    background-color: #1f2937; /* Dark gray */
+    color: white;
+    padding: 30px 0;
+}
+.footer-links a {
+    color: #6366f1; /* Light indigo */
+    margin: 0 10px;
+}
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    background-color: #4f46e5; /* Indigo color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 9999;
+}
+/* Tree View Styling */
+.tree {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: inherit;
+}
+.tree ul {
+    list-style-type: none;
+    padding-left: 1em;
+    position: relative;
+}
+.tree li {
+    margin: 0;
+    padding: 0 0 1em 1em;
+    position: relative;
+}
+.tree li::before {
+    content: '';
+    position: absolute;
+    top: -0.5em;
+    left: -1em;
+    width: 1em;
+    height: 1em;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 0.5em;
+}
+.tree li:last-child::before {
+    border-left: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 0 0 0 0.5em;
+}
+.tree .caret {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+.tree .caret::before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    margin-right: 5px;
+    transition: transform 0.3s;
+}
+.tree .caret-down::before {
+    transform: rotate(90deg);
+}
+.tree .nested {
+    display: none;
+}
+.tree .active {
+    display: block;
+}
+.tree a {
+    text-decoration: none;
+    color: inherit;
+}
+.tree a:hover {
+    color: #4f46e5;
+}
+/* Hero Section */
+.hero-content {
+    margin-top: 100px;
+}
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+body.dark-mode .navbar {
+    background-color: #111827;
+}
+body.dark-mode .navbar-brand {
+    color: #93c5fd;
+}
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #d1d5db;
+}
+body.dark-mode .navbar-light .navbar-nav .nav-link:hover {
+    color: #93c5fd;
+}
+body.dark-mode #sidebar {
+    background-color: #111827;
+    color: #f9fafb;
+}
+body.dark-mode #main-content {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+body.dark-mode footer {
+    background-color: #111827;
+    color: #f9fafb;
+}
+body.dark-mode .footer-links a {
+    color: #93c5fd; /* Light blue links */
+}
+body.dark-mode .back-to-top {
+    background-color: #2563eb; /* Blue color */
+}
+/* Dark Mode Table of Contents */
+body.dark-mode .tree li a {
+    color: #f9fafb; /* Light text for readability */
+}
+body.dark-mode .tree li a:hover {
+    color: #93c5fd; /* Light blue on hover */
+}
+body.dark-mode .caret::before {
+    color: #9ca3af; /* Gray caret icons */
+}
+body.dark-mode .tree li::before {
+    border-color: #4b5563; /* Adjusted line color in dark mode */
+}
